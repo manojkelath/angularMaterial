@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { PaginatedListComponent } from './paginated-list/paginated-list.component';
 
 import {
   MatTableModule,
@@ -11,16 +11,17 @@ import {
 } from '@angular/material';
 import {HttpModule} from '@angular/http';
 import {CdkTableModule} from '@angular/cdk/table';
+import { TestService } from './services/test.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    PaginatedListComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     MatPaginatorModule,
-    MatTableModule
+    MatTableModule,
+    HttpClientModule
   ],
   exports: [
     CdkTableModule,
@@ -28,7 +29,7 @@ import {CdkTableModule} from '@angular/cdk/table';
     MatTableModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [TestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
